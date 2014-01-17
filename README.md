@@ -16,6 +16,8 @@ npm install express ejs pg
 ```
 * Configure the virtual machine as in the report
 * Run app.js
+* Go to http://localhost:8080
+* Enjoy !
 
 Issues
 ------
