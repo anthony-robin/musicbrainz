@@ -11,7 +11,7 @@ Installation
 * Download the [Virtualbox file](http://musicbrainz.org/doc/MusicBrainz_Server/Setup)
 * Install node if you don't have it
 * run in a terminal
-```sh
+```
 npm install express ejs pg
 ```
 * Configure the virtual machine as in the report
