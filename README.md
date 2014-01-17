@@ -17,6 +17,10 @@ npm install express ejs pg
 * Configure the virtual machine as in the report
 * Run app.js
 
+Issues
+------
+* Request are very slow
+
 
 Credits
 -------
