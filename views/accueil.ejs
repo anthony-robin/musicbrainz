@@ -1,0 +1,25 @@
+<% include fragments/header.ejs %>
+
+<h2>Trouvez les reprises de vos chansons</h2>
+<br>
+
+<div class="row">
+	<div class="small-11 small-centered columns">
+		<form action="/reprises" method="get">
+		    <label for="titre" class="success round label">Votre titre de chanson</label>
+		    <div class="row">
+		    	<div class="small-8 columns">
+		    		<input type="text" name="titre" id="titre" placeholder="Titre à rechercher" />
+		    	</div>
+		    	<div class="small-4 columns">
+		   			<input type="submit" name="rechercher" value="Rechercher" class="button radius small" id="rechercher">
+		    	</div>
+		    </div>
+		</form>
+
+	</div>
+
+</div>
+
+
+<% include fragments/footer.ejs %>

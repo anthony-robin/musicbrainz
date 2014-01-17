@@ -1,0 +1,49 @@
+<% include fragments/header.ejs %>
+
+		<p>
+			<a href="/" class="button small"> Chercher une autre reprise</a>
+		</p>
+
+		<h3>Liste des artistes ayant repris la chanson <strong><%= titre %></strong>:</h3>
+
+		<%
+			for (var id in resultat) {
+				var writters = resultat[id]["Writters"];
+				var artists =  resultat[id]["Artists"];
+
+				var writ= writters[0];
+				var writPrec = writters[0];
+				for (var i = 0; i < writters.length; i++) {
+
+					if (writPrec != writters[i]){
+						writ+= " & " + writters[i] +" ";
+						writPrec = writters[i];
+					}
+				}
+		%>
+
+
+			<h4><small>par</small> <%= writ %> (écrivain)</h4>
+			<ul>
+				<li><%= artists[0] %></li>
+
+				<%
+					var artPrec = artists[0];
+					for (var i = 0; i < artists.length; i++) {
+						if (artPrec != artists[i]){
+				%>
+
+				<li><%= artists[i] %></li>
+
+				<%
+							artPrec = artists[i];
+						}
+					}
+				%>
+			</ul>
+
+
+		<% } %>
+
+
+<% include fragments/footer.ejs %>

@@ -1,0 +1,55 @@
+		</div>
+	</div>
+
+	<footer class="site-footer">
+		<p>MusicBrainz App' réalisé par Suyin LEFEBVRE et Anthony ROBIN</p>
+	</footer>
+
+
+	<div id="loader">
+		<div id="bloc">
+			<img src="img/loader.GIF" alt="Loader">
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+	<script>
+		$("#rechercher").on("click", function(e){
+			$("#loader").show();
+		});
+
+		$("#titre").bind("keyup", function() {
+			$this = $(this);
+			$title = $this.val();
+
+			if($title.length === 0){
+				$title = "Sweet";
+			}
+
+			$.ajax({
+				url: "http://musicbrainz.org/ws/2/work/?query="+$title,
+				dataType: "xml",
+				success: function( xmlResponse ) {
+					var data = $( "work", xmlResponse ).map(function() {
+						return {
+							value: $( "title", this ).text(),
+							id: $( "work" )
+						};
+					}).get();
+					$( "#titre" ).autocomplete({
+						source: data,
+						minLength: 3,
+						select: function( event, ui ) {}
+					});
+				}
+			});
+
+		});
+
+	</script>
+
+</body>
+</html>
